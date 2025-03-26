@@ -41,9 +41,9 @@ jobs:
           command: buildozer android debug
           buildozer_version: stable
 
-      # Upload build artifacts
+      # Upload build artifacts (fallback to v2 for reliability)
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v3.1.3
+        uses: actions/upload-artifact@v2
         with:
           name: package
-          path: bin/*.apk  # Upload APK or AAB to artifacts
+          path: bin/*.apk
