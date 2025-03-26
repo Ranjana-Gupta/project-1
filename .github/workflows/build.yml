@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       # Checkout the repository
@@ -41,9 +41,9 @@ jobs:
           command: buildozer android debug
           buildozer_version: stable
 
-      # Upload build artifacts (fallback to v2 for reliability)
+      # Upload build artifacts (forcing v3 or fallback to v2 if needed)
       - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: package
           path: bin/*.apk
